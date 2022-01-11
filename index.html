@@ -1,0 +1,45 @@
+<!doctype html>
+	<head> 
+		<title>Token Airdrop</title> 
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body>
+		<h1>Airdrop to Waifu token owners</h1>
+		<div id="app">
+			<div>
+				<p><strong>Notice:</strong> You will need <a href="https://electroncash.org/">Electron Cash</a> to get the airdrop token.</p>
+			</div>
+			<div id="step1">
+				<h2>Step 1</h2>
+				<p>Send a Waifu token to its current address (to yourself) and provide the Tx ID:</p>
+				<input type="text" name="txId" placeholder="3237beb2a0b13374dae8a9c327375d73ef3f51ce71fdb0731940c600d8ecf56d" />
+			</div>
+			<div id="step2">
+				<h2>Step 2</h2>
+				<p>Inupt the address on Rinkeby that you want to receive the airdrop token.</p>
+				<input type="text" name="to" placeholder="0xeCD463646816850e9243Bf13C4f13597cB61cC95" />
+			</div>
+			<div id="step3">
+				<h2>Step 3</h2>
+				<p>Click [Next] to get the encrypted code:</p>
+				<button onclick="onNext()">Next</button>
+				<textarea id="encryptedCode" readonly></textarea>
+			</div>
+			<div id="step4">
+				<h2>Step 4</h2>
+				<p>Decrypt the code via the Electron Cash decrypt tool with your public key <span class="ownerPubkey"></span> and paste the decrypted text here:</p>
+				<p>Example image: <a href="decrypt1.png" target="_blank">1</a> <a href="decrypt2.png" target="_blank">2</a></p>
+				<textarea id="decryptedCode"></textarea>
+			</div>
+			<div id="step5">
+				<h2>Step 5</h2>
+				<p>Click [Submit] and finish the transaction with Metamask:</p>
+				<button onclick="onSubmit()">Submit</button>
+			</div>
+		</div>
+	</body>
+	<script src="https://cdn.ethers.io/lib/ethers-5.1.umd.min.js"></script>
+	<script src="script.js"></script>
+</html>
