@@ -31,6 +31,9 @@ async function onNext() {
 		return;
 	}
 	
+	document.querySelector('#encryptedCode').value = 'Loading...';
+	document.querySelector('input[name="ownerPubkey"]').value = 'Loading...';
+	
 	let url = `https://us-central1-gifuwolf.cloudfunctions.net/function-1/?txId=${txId}&to=${to}`;
 	let response = await fetch(url);
 	let parsed = await response.json();
@@ -40,8 +43,8 @@ async function onNext() {
 		return;
 	}
 	
-	document.querySelector('#encryptedCode').textContent = parsed.code;
-	document.querySelector('span.ownerPubkey').textContent = parsed.ownerPublicKey;
+	document.querySelector('#encryptedCode').value = parsed.code;
+	document.querySelector('input[name="ownerPubkey"]').value = parsed.ownerPublicKey;
 }
 
 async function onSubmit() {
