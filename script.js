@@ -1,10 +1,18 @@
 let provider;
 window.ethereum.request({
-	method: 'wallet_switchEthereumChain',
-	params: [{ chainId: '0x4' }],
+	method: 'eth_requestAccounts',
 }).then((response)=>{
 	provider = new ethers.providers.Web3Provider(window.ethereum);
+	document.querySelector('input[name="to"]').value = response[0];
+	
+	window.ethereum.request({
+		method: 'wallet_switchEthereumChain',
+		params: [{ chainId: '0x4' }],
+	}).then((response)=>{
+	});
 });
+
+
 
 const AirdropAddress = '0x5a331711bb6245F4B35a3617a8Bda93d2e3E947E';
 
@@ -49,7 +57,21 @@ async function onNext() {
 
 async function onSubmit() {
 	let code = document.querySelector('#decryptedCode').value;
-	let gas = await provider.estimateGas({to:AirdropAddress, data:code});
+	let gas;
+	try {
+		gas = await provider.estimateGas({to:AirdropAddress, data:code});
+	} catch(ex) {
+		let msg = ((ex)=>{
+			if(ex.error && ex.error.data && ex.error.data.originalError && ex.error.data.originalError.message) {
+				return 'Error: ' + ex.error.data.originalError.message;
+			} else if(ex.error && ex.error.message) {
+				return 'Error: ' + ex.error.message;
+			}
+			return 'Error: ' + 'invalid data';
+		})(ex);
+		error(msg);
+		throw ex;
+	}
 	gas = parseInt(gas.toString()) + 50000;
 	let response = await provider.getSigner().sendTransaction({to:AirdropAddress, gasLimit:gas, data:code});
 }
