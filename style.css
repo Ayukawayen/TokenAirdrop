@@ -4,18 +4,48 @@ body {
 	background:#eee;
 }
 
-textarea {
-	display:block;
-	width:100%;
-	height:8em;
-	
-	margin:1em 0 0;
-}
-
-span.ownerPubkey {
+#step1 >div {
 	display:inline-block;
-	font-family: monospace;
+}
+#step1 label {
+	display:inline-block;
+	
+	margin:0.5rem 0.25rem 0 0;
+	padding:0.25rem 0;
+	
+	vertical-align: middle;
+}
+#step1 input {
+	display:inline-block;
+	
+	width:16rem;
+	
+	margin:0.5rem 0.75rem 0 0;
+	padding:0.25rem;
+	
+	vertical-align: middle;
 }
 
-span.ownerPubkey:before { content:'('; }
-span.ownerPubkey:after { content:')'; }
+#step2 label {
+	display:inline-block;
+	width:5rem;
+	
+	margin:1rem 0 0;
+	padding:0;
+	
+	vertical-align: middle;
+}
+#step2 textarea {
+	display:inline-block;
+	width:calc( 100% - 7rem );
+	height:6rem;
+	
+	margin:1rem 0 0;
+	padding:0.5rem;
+	
+	vertical-align: middle;
+}
+
+#step2 textarea#ownerAddress {
+	height:1rem;
+}

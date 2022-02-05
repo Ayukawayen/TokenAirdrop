@@ -1,52 +1,51 @@
 <!doctype html>
 	<head> 
-		<title>Testnet Token Airdrop</title> 
+		<title>Smart Waifu Token Airdrop</title> 
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" type="text/css" href="style.css" />
 	</head>
 	<body>
-		<h1>Testnet Airdrop to Waifu token owners</h1>
+		<h1>Smart Waifu Airdrop to SLP Waifu owners</h1>
 		<div id="app">
 			<div>
 				<p><strong>Notice:</strong> You will need <a href="https://electroncash.org/">Electron Cash</a> to get the airdrop token.</p>
 			</div>
 			<div id="step1">
 				<h2>Step 1</h2>
-				<p>Send a Waifu token to its current address (to yourself) and provide the Tx ID:</p>
-				<input type="text" name="txId" placeholder="3237beb2a0b13374dae8a9c327375d73ef3f51ce71fdb0731940c600d8ecf56d" />
+				<p>Fill the Waifu token ID and the address on SmartBCH that you want to receive the airdrop token.</p>
+				<div>
+					<label>Waifu ID</label>
+					<input type="text" name="slpId" onchange="onSlpIdChange()" placeholder="5239f59c1a3d14f84f256079cb5293aafdbc2ac7bcb59aa0ddf28a719c551f77" />
+				</div>
+				<div>
+					<label>Recipient Address</label>
+					<input type="text" name="recipient" onchange="onRecipientChange()" placeholder="0x592eA2cf2C8365fa89bB30576a7fB57f4313af54" />
+				</div>
 			</div>
 			<div id="step2">
 				<h2>Step 2</h2>
-				<p>Input the address on Rinkeby that you want to receive the airdrop token.</p>
-				<input type="text" name="to" placeholder="0xeCD463646816850e9243Bf13C4f13597cB61cC95" />
+				<p>Sign the message and paste the result. Example images: <a href="sign01.png" target="_blank">1</a> <a href="sign02.png" target="_blank">2</a></p>
+				<div>
+					<label>Message</label>
+					<textarea id="message" onclick="onMessageClick()" readonly></textarea>
+				</div>
+				<div>
+					<label>Address</label>
+					<textarea id="ownerAddress" onclick="onOwnerAddressClick()" placeholder="Click to load the address of token owner from net. You can skip this step if you know the address."></textarea>
+				</div>
+				<div>
+					<label for="signature">Signature</label>
+					<textarea id="signature" placeholder="paste the signature here"></textarea>
+				</div>
 			</div>
 			<div id="step3">
 				<h2>Step 3</h2>
-				<p>Click [Next] to get the encrypted code:</p>
-				<p><button onclick="onNext()">Next</button></p>
-				<div>
-					<label for="ownerPubkey">Public key</label>
-					<input type="text" name="ownerPubkey" readonly/>
-				</div>
-				<div>
-					<label>Encrypted code</label>
-					<textarea id="encryptedCode" readonly></textarea>
-				</div>
-			</div>
-			<div id="step4">
-				<h2>Step 4</h2>
-				<p>Decrypt the code via the Electron Cash decrypt tool and paste the decrypted text here:</p>
-				<p>Example image: <a href="decrypt1.png" target="_blank">1</a> <a href="decrypt2.png" target="_blank">2</a></p>
-				<p><textarea id="decryptedCode" placeholder="Decrypted code"></textarea></p>
-			</div>
-			<div id="step5">
-				<h2>Step 5</h2>
 				<p>Click [Submit] and finish the transaction with Metamask:</p>
-				<p><button onclick="onSubmit()">Submit</button></p>
+				<p><button id="submit" onclick="onSubmit()">Submit</button></p>
 			</div>
 		</div>
 	</body>
 	<script src="https://cdn.ethers.io/lib/ethers-5.1.umd.min.js"></script>
-	<script src="script.js?01121300"></script>
+	<script src="script.js?02041637"></script>
 </html>
