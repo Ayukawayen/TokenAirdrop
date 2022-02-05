@@ -130,10 +130,10 @@ async function handleSubmit() {
 				return 'Error: ' + ex.error.data.originalError.message;
 			} else if(ex.error && ex.error.message) {
 				return 'Error: ' + ex.error.message;
-			} else if(ex.data && ex.data.data && ex.data.data.message) {
-				return 'Error: ' + ex.data.data.message;
 			} else if(ex.data && ex.data.message) {
 				return 'Error: ' + ex.data.message;
+			} else if(ex.message) {
+				return 'Error: ' + ex.message;
 			}
 			return 'Something went wrong. Please reload the page and try again.';
 		})(ex);
