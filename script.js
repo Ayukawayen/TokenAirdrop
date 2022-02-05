@@ -131,7 +131,7 @@ async function handleSubmit() {
 			} else if(ex.error && ex.error.message) {
 				return 'Error: ' + ex.error.message;
 			}
-			return 'Error: ' + 'invalid data';
+			return 'Something error. Please try again.';
 		})(ex);
 		error(msg);
 	}
