@@ -131,7 +131,7 @@ async function handleSubmit() {
 			} else if(ex.error && ex.error.message) {
 				return 'Error: ' + ex.error.message;
 			}
-			return 'Something error. Please try again.';
+			return 'Something went wrong. Please reload the page and try again.';
 		})(ex);
 		error(msg);
 	}
