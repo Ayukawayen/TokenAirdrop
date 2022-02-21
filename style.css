@@ -4,6 +4,23 @@ body {
 	background:#eee;
 }
 
+#home {
+	text-align:center;
+}
+#home >div {
+	display:inline-block;
+	
+	width:40%;
+}
+#home >div >p >a {
+	font-size:2em;
+}
+#home #endDate {
+	font-size:1.5em;
+	
+	padding:1em 0;
+}
+
 #step1 >div {
 	display:inline-block;
 }
