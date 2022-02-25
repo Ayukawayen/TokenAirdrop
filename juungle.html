@@ -8,7 +8,39 @@
 	<body>
 		<div id="juungle" class="app">
 			<a href="index.html">＜</a>
-			<h1>No token available now</h1>
+			<h1>Smart Waifu Airdrop to SLP Waifu owners on Juungle</h1>
+			<div id="step1">
+				<h2>Step 1</h2>
+				<p>Fill the SLP Waifu token ID and the address on SmartBCH that you want to receive the airdrop token.</p>
+				<div>
+					<label>Waifu ID</label>
+					<input type="text" name="slpId" onchange="onSlpIdChange()" placeholder="5239f59c1a3d14f84f256079cb5293aafdbc2ac7bcb59aa0ddf28a719c551f77" />
+				</div>
+				<div>
+					<label>Recipient Address</label>
+					<input type="text" name="recipient" onchange="onRecipientChange()" placeholder="0x592eA2cf2C8365fa89bB30576a7fB57f4313af54" />
+				</div>
+			</div>
+			<div id="step2">
+				<h2>Step 2</h2>
+				<p>(If the SLP Waifu token in on sale now, please unlist it.)</p>
+				<p>click [Next]</p>
+				<p><button id="next" onclick="onNext()">Next</button></p>
+			</div>
+			<div id="step3">
+				<h2>Step 3</h2>
+				<p>List the SLP Waifu token on Juungle with price: <input type="text" name="price" placeholder="click [Next] on Step 2 to get the price" readonly /> BCH</p>
+			</div>
+			<div id="step4">
+				<h2>Step 4</h2>
+				<p>Click [Submit] and finish the transaction with Metamask:</p>
+				<p><button id="submit" onclick="onSubmit()">Submit</button></p>
+				<p><em>You may unlist the SLP Waifu or change the price on Juungle after successfully claim the airdropped token.</em></p>
+			</div>
 		</div>
 	</body>
+	<script src="https://cdn.ethers.io/lib/ethers-5.1.umd.min.js"></script>
+	<script src="contractAbi.js?"></script>
+	<script src="juungle.js?"></script>
+	<script src="adapter.js?"></script>
 </html>
